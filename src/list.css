@@ -1,0 +1,60 @@
+.list {
+    margin: 20px;
+    border: solid 2px black;
+}
+
+ul {
+    list-style-type: none;
+    width: 500px;
+}
+  
+h3 {
+    font: bold 20px/1.5 Helvetica, Verdana, sans-serif;
+}
+  
+li img {
+    float: left;
+    margin: 0 15px 0 0;
+}
+  
+li p {
+    font: 200 12px/1.5 Georgia, Times New Roman, serif;
+}
+  
+li {
+    width: 960px;
+    padding: 10px;
+    overflow: auto;
+    margin: auto    ;
+}
+  
+li:hover {
+    background: #eee;
+    cursor: pointer;
+}
+
+.editBtn {
+    background-color: #4CAF50; 
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    font-size: 10px;
+}
+
+.delBtn {
+    background-color: rgb(175, 76, 81); 
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    font-size: 10px;
+}
