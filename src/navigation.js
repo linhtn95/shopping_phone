@@ -11,6 +11,7 @@ class Navigation extends Component {
             <header>
                 <nav>
                     <ul>
+                        <li><Link to='/'>Home</Link></li>
                         <li><Link to='/phones'>Phones</Link></li>
                         <li><Link to='/add'>Add</Link></li>
                     </ul>

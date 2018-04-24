@@ -10,16 +10,23 @@ class List extends Component {
         this.state = {phones: []};
         this.deletePhone = this.deletePhone.bind(this);
         this.getAll = this.getAll.bind(this);
-        //this.showAdd = this.showAdd.bind(this);
         this.editPhone = this.editPhone.bind(this);
     }
 
+    // getAll() {
+    //     fetch('http://59e9685258dd3e00128055af.mockapi.io/phones', {
+    //         method: 'GET',
+    //         headers: {
+    //             "Content-type": "application/json; charset=UTF-8"
+    //         }
+    //     })
+    //     .then(data => data.json())
+    //     .then(data => this.setState({phones: data}))  
+    // }
+
     getAll() {
-        fetch('http://59e9685258dd3e00128055af.mockapi.io/phones', {
-            method: 'GET',
-            headers: {
-                "Content-type": "application/json; charset=UTF-8"
-            }
+        fetch('https://nodemobileshop.herokuapp.com/products', {
+            method: 'GET'
         })
         .then(data => data.json())
         .then(data => this.setState({phones: data}))  
@@ -29,14 +36,22 @@ class List extends Component {
        this.getAll();
     }
 
+    // deletePhone(id) {
+    //     return fetch(`http://59e9685258dd3e00128055af.mockapi.io/phones/${id}`, {
+    //         method: 'DELETE'
+    //     })
+    //     .then(res => alert('Delete Successfully!'))
+    //     .then(res => this.getAll())
+    // }
+    
     deletePhone(id) {
-        return fetch(`http://59e9685258dd3e00128055af.mockapi.io/phones/${id}`, {
+        return fetch(`https://nodemobileshop.herokuapp.com/products/${id}`, {
             method: 'DELETE'
         })
         .then(res => alert('Delete Successfully!'))
         .then(res => this.getAll())
     }
-    
+
     editPhone(phone) {
         ReactDOM.render(<Edit item={phone}/>, document.getElementById('root'));
     }
@@ -47,18 +62,19 @@ class List extends Component {
                 {/* <SearchBox /> */}
                 <ul>
                     {this.state.phones.map((index) =>
-                        <li key={index.id}> 
+                        <li key={index._id}> 
                             <img src={index.img} alt="imgPhone" style={{width: 150, height: 150}}/>
                             <h3>{index.name}</h3>
                             <p>{index.price} VND</p>
                             <button className="editBtn" onClick={() => this.editPhone(index)}>Edit</button>
-                            <button className="delBtn" onClick={() => this.deletePhone(index.id)}>Delete</button>
+                            <button className="delBtn" onClick={() => this.deletePhone(index._id)}>Delete</button>
                         </li>
                     )}
                 </ul>
             </div>
         );
     }
+
 }
 
 export default List;
